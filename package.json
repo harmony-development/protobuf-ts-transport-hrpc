@@ -1,12 +1,12 @@
 {
   "name": "@harmony-dev/transport-hrpc",
-  "version": "1.0.0",
+  "version": "1.0.0-2",
   "description": "protobuf-ts transport for hRPC",
   "author": "Danil Korennykh <bluskript@gmail.com>",
   "license": "Apache-2.0",
-  "main": "./build/commonjs/index.js",
-  "module": "./build/es2015/index.js",
-  "typings": "./build/types/index.d.ts",
+  "main": "./build/commonjs/src/index.js",
+  "module": "./build/es2015/src/index.js",
+  "typings": "./build/types/src/index.d.ts",
   "sideEffects": false,
   "scripts": {},
   "keywords": [

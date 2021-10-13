@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Oct 12 23:10:23 2021
+# Make data base, printed on Wed Oct 13 01:52:58 2021
 
 # Variables
 
@@ -17,11 +17,11 @@ LC_ALL = C
 # environment
 NO_AT_BRIDGE = 1
 # environment
-STARSHIP_SESSION_KEY = 3172820093252223
+STARSHIP_SESSION_KEY = 3896134323229316
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-73bf21e0-13b5-4dea-a2a6-95f89aa56a49.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-fa9f2483-faba-4427-a2d7-52772d309e9c.sock
 # environment
-VSCODE_CWD = /home/amadeus/HarmonyProject/transport-hrpc
+VSCODE_CWD = /home/amadeus/HarmonyProject/hrpc
 # environment
 WINDOWID = 106954754
 # environment
@@ -55,8 +55,6 @@ VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-NVM_INC = /home/amadeus/.nvm/versions/node/v14.15.1/include/node
-# environment
 VSCODE_CODE_CACHE_PATH = /home/amadeus/.config/Code/CachedData/e7d7e9a9348e6a8cc8c03f877d39cb72e5dfb1ff
 # environment
 LANG = C
@@ -84,8 +82,6 @@ MFLAGS = -pqrR
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # default
 .SHELLFLAGS := -c
-# environment
-NVM_BIN = /home/amadeus/.nvm/versions/node/v14.15.1/bin
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -137,7 +133,7 @@ MAKE = $(MAKE_COMMAND)
 # environment
 FLUTTER_HOME = /opt/flutter
 # environment
-PATH = /home/amadeus/.nvm/versions/node/v14.15.1/bin:/home/amadeus/.config/rofi/bin:/home/amadeus/.local/bin:/home/amadeus/.mix/escripts:/home/amadeus/.local/bin:/home/amadeus/.yarn/bin:/home/amadeus/go/bin:/home/amadeus/.config/rofi/bin:/home/amadeus/.local/bin:/home/amadeus/.mix/escripts:/home/amadeus/.local/bin:/home/amadeus/.yarn/bin:/bin:/home/amadeus/.nix-profile/bin:/home/amadeus/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/cuda/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin:/var/lib/flatpak/exports/bin:/opt/flutter/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin
+PATH = /home/amadeus/.config/rofi/bin:/home/amadeus/.local/bin:/home/amadeus/.mix/escripts:/home/amadeus/.local/bin:/home/amadeus/.yarn/bin:/home/amadeus/go/bin:/home/amadeus/.config/rofi/bin:/home/amadeus/.local/bin:/home/amadeus/.mix/escripts:/home/amadeus/.local/bin:/home/amadeus/.yarn/bin:/bin:/home/amadeus/.nix-profile/bin:/home/amadeus/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/cuda/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin:/var/lib/flatpak/exports/bin:/opt/flutter/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin
 # environment
 NIX_SSL_CERT_FILE = /etc/ssl/certs/ca-certificates.crt
 # default
@@ -159,7 +155,7 @@ VSCODE_LOG_NATIVE = false
 # environment
 XDG_SEAT = seat0
 # environment
-ALACRITTY_LOG = /tmp/Alacritty-80920.log
+ALACRITTY_LOG = /tmp/Alacritty-70788.log
 # environment
 MKLROOT = /opt/intel/mkl
 # automatic
@@ -199,8 +195,6 @@ XDG_RUNTIME_DIR = /run/user/1000
 # environment
 COLORTERM = truecolor
 # environment
-NVM_CD_FLAGS = -q
-# environment
 JOURNAL_STREAM = 8:25897
 # environment
 XDG_SESSION_CLASS = user
@@ -235,7 +229,7 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
 # variable set hash-table stats:
-# Load=112/1024=11%, Rehash=0, Collisions=11/142=8%
+# Load=109/1024=11%, Rehash=0, Collisions=11/139=8%
 
 # Pattern-specific Variable Values
 
@@ -243,9 +237,9 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 
 # Directories
 
-# . (device 66305, inode 39722937): 18 files, no impossibilities.
+# . (device 66305, inode 39722937): 19 files, no impossibilities.
 
-# 18 files, no impossibilities in 1 directories.
+# 19 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -286,9 +280,6 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
-make: *** No rule to make target 'all'.  Stop.
- 
 
 # Not a target:
 all:
@@ -311,6 +302,9 @@ build:
 test:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
+make: *** No rule to make target 'all'.  Stop.
+ 
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 19):
 	@./node_modules/.bin/jest
@@ -323,12 +317,12 @@ test:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 27 / storage = 241 B / avg = 8 B
-# current buf: size = 8162 B / used = 241 B / count = 27 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 28 / storage = 256 B / avg = 9 B
+# current buf: size = 8162 B / used = 256 B / count = 28 / avg = 9 B
 
-# strcache performance: lookups = 41 / hit rate = 34%
+# strcache performance: lookups = 42 / hit rate = 33%
 # hash-table stats:
-# Load=27/8192=0%, Rehash=0, Collisions=0/41=0%
-# Finished Make data base on Tue Oct 12 23:10:23 2021
+# Load=28/8192=0%, Rehash=0, Collisions=0/42=0%
+# Finished Make data base on Wed Oct 13 01:52:58 2021
 
  
