@@ -1,0 +1,39 @@
+{
+  "name": "@harmony-dev/transport-hrpc",
+  "version": "1.0.0",
+  "description": "protobuf-ts transport for hRPC",
+  "author": "Danil Korennykh <bluskript@gmail.com>",
+  "license": "Apache-2.0",
+  "main": "./build/commonjs/index.js",
+  "module": "./build/es2015/index.js",
+  "typings": "./build/types/index.d.ts",
+  "sideEffects": false,
+  "scripts": {},
+  "keywords": [
+    "Protocol Buffers",
+    "protobuf",
+    "Typescript",
+    "hRPC"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harmony-development/protobuf-ts-transport-hrpc"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@protobuf-ts/runtime": "^2.0.7",
+    "@protobuf-ts/runtime-rpc": "^2.0.7"
+  },
+  "devDependencies": {
+    "@protobuf-ts/plugin": "^2.0.7",
+    "@protobuf-ts/protoc": "^2.0.7",
+    "@types/jest": "^27.0.2",
+    "jest": "^27.2.5",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.3.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.4"
+  }
+}

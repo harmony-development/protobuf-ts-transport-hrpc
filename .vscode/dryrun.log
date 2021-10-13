@@ -1,0 +1,14 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/amadeus/HarmonyProject/transport-hrpc'
+buf generate git://github.com/harmony-development/hrpc.git#branch=work/danil/cleanup
+find build \( -name '*.js' -or -name '*.map' -or -name '*.ts' \) -delete;
+find build -type d ! -path gen -delete
+echo "'clean' done"
+./node_modules/.bin/tsc --project tsconfig.json --module es2015 --outDir build/es2015;
+echo "es6 done"
+./node_modules/.bin/tsc --project tsconfig.json --module commonjs --outDir build/commonjs \
+	--declaration --declarationDir build/types;
+echo "cjs done"
+./node_modules/.bin/jest
+make: Leaving directory '/home/amadeus/HarmonyProject/transport-hrpc'
+ 

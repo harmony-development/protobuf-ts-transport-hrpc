@@ -1,0 +1,334 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.3
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Tue Oct 12 23:10:23 2021
+
+# Variables
+
+# environment
+GDK_BACKEND = x11
+# environment
+LC_ALL = C
+# environment
+NO_AT_BRIDGE = 1
+# environment
+STARSHIP_SESSION_KEY = 3172820093252223
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-73bf21e0-13b5-4dea-a2a6-95f89aa56a49.sock
+# environment
+VSCODE_CWD = /home/amadeus/HarmonyProject/transport-hrpc
+# environment
+WINDOWID = 106954754
+# environment
+WINDOWPATH = 1
+# environment
+NVM_DIR = /home/amadeus/.nvm
+# default
+MAKE_COMMAND := make
+# environment
+GOPATH = /home/amadeus/go
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# environment
+PWD = /home/amadeus/HarmonyProject/transport-hrpc
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+MAIL = /var/spool/mail/amadeus
+# environment
+XDG_DATA_DIRS = /home/amadeus/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+OLDPWD = /home/amadeus/HarmonyProject
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+VSCODE_LOG_STACK = false
+# automatic
+%F = $(notdir $%)
+# environment
+NVM_INC = /home/amadeus/.nvm/versions/node/v14.15.1/include/node
+# environment
+VSCODE_CODE_CACHE_PATH = /home/amadeus/.config/Code/CachedData/e7d7e9a9348e6a8cc8c03f877d39cb72e5dfb1ff
+# environment
+LANG = C
+# environment
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE = 20
+# environment
+XAUTHORITY = /home/amadeus/.Xauthority
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# makefile
+MAKEFLAGS = pqrR
+# makefile
+CURDIR := /home/amadeus/HarmonyProject/transport-hrpc
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrR
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# default
+.SHELLFLAGS := -c
+# environment
+NVM_BIN = /home/amadeus/.nvm/versions/node/v14.15.1/bin
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=f6f94c0f-d5ce-4056-81ac-b51aa3baaf09&iid=f6f94c0f-d5ce-4056-81ac-b51aa3baaf09&sid=f6f94c0f-d5ce-4056-81ac-b51aa3baaf09","uploadToServer":true}
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+VSCODE_PID = 71302
+# environment
+XDG_SESSION_TYPE = x11
+# environment
+CUDA_PATH = /opt/cuda
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+NVM_LAZY_LOAD = true
+# automatic
+*F = $(notdir $*)
+# environment
+QT_QPA_PLATFORMTHEME = qt5ct
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+BREAKPAD_DUMP_LOCATION = /home/amadeus/.config/Code/exthost Crash Reports
+# environment
+ANDROID_SDK_ROOT = /opt/android-sdk
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# makefile
+SHELL = /bin/sh
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 5
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+FLUTTER_HOME = /opt/flutter
+# environment
+PATH = /home/amadeus/.nvm/versions/node/v14.15.1/bin:/home/amadeus/.config/rofi/bin:/home/amadeus/.local/bin:/home/amadeus/.mix/escripts:/home/amadeus/.local/bin:/home/amadeus/.yarn/bin:/home/amadeus/go/bin:/home/amadeus/.config/rofi/bin:/home/amadeus/.local/bin:/home/amadeus/.mix/escripts:/home/amadeus/.local/bin:/home/amadeus/.yarn/bin:/bin:/home/amadeus/.nix-profile/bin:/home/amadeus/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/cuda/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin:/var/lib/flatpak/exports/bin:/opt/flutter/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin
+# environment
+NIX_SSL_CERT_FILE = /etc/ssl/certs/ca-certificates.crt
+# default
+MAKEFILES := 
+# environment
+MOTD_SHOWN = pam
+# automatic
+^F = $(notdir $^)
+# environment
+GRADLE_HOME = /usr/share/java/gradle
+# environment
+XDG_CONFIG_HOME = /home/amadeus/.config
+# environment
+INVOCATION_ID = b9bbc461ddd2499ca38e69327cf31643
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?F = $(notdir $?)
+# environment
+XDG_SEAT = seat0
+# environment
+ALACRITTY_LOG = /tmp/Alacritty-80920.log
+# environment
+MKLROOT = /opt/intel/mkl
+# automatic
++F = $(notdir $+)
+# environment
+DESKTOP_SESSION = bspwm
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+ZSH_AUTOSUGGEST_USE_ASYNC = true
+# environment
+LOGNAME = amadeus
+# environment
+XDG_VTNR = 1
+# makefile
+.DEFAULT_GOAL := default
+# environment
+SYSTEMD_EXEC_PID = 478
+# environment
+EDITOR = micro
+# environment
+DISPLAY = :0
+# environment
+USER = amadeus
+# default
+MAKE_VERSION := 4.3
+# environment
+NIX_PROFILES = /nix/var/nix/profiles/default /home/amadeus/.nix-profile
+# environment
+STARSHIP_SHELL = zsh
+# environment
+_ = /bin/make
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# environment
+COLORTERM = truecolor
+# environment
+NVM_CD_FLAGS = -q
+# environment
+JOURNAL_STREAM = 8:25897
+# environment
+XDG_SESSION_CLASS = user
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+# environment
+HOME = /home/amadeus
+# environment
+SUDO_PROMPT = [36m[[91msudo[36m] [93mpassword for %u: [39m
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-c2242b0a-1.60.0-main.sock
+# environment
+RUST_SRC_PATH = /home/amadeus/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
+# environment
+TERM = xterm-256color
+# environment
+XDG_SESSION_ID = 1
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# environment
+NIX_PATH = nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixpkgs:/nix/var/nix/profiles/per-user/root/channels:/home/amadeus/.nix-defexpr/channels
+# default
+SUFFIXES := 
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
+# variable set hash-table stats:
+# Load=112/1024=11%, Rehash=0, Collisions=11/142=8%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 66305, inode 39722937): 18 files, no impossibilities.
+
+# 18 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+generate:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 4):
+	buf generate git://github.com/harmony-development/hrpc.git#branch=work/danil/cleanup
+
+default: generate clean build test
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2021-10-12 23:06:09.260469734
+#  File has been updated.
+#  Successfully updated.
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 7):
+	@find build \( -name '*.js' -or -name '*.map' -or -name '*.ts' \) -delete;
+	@find build -type d ! -path gen -delete
+	@echo "'${@}' done"
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+ 
+make: *** No rule to make target 'all'.  Stop.
+ 
+
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+build:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 12):
+	@./node_modules/.bin/tsc --project tsconfig.json --module es2015 --outDir build/es2015;
+	@echo "es6 done"
+	@./node_modules/.bin/tsc --project tsconfig.json --module commonjs --outDir build/commonjs \
+		--declaration --declarationDir build/types;
+	@echo "cjs done"
+
+test:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 19):
+	@./node_modules/.bin/jest
+
+# files hash-table stats:
+# Load=9/1024=1%, Rehash=0, Collisions=0/27=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 27 / storage = 241 B / avg = 8 B
+# current buf: size = 8162 B / used = 241 B / count = 27 / avg = 8 B
+
+# strcache performance: lookups = 41 / hit rate = 34%
+# hash-table stats:
+# Load=27/8192=0%, Rehash=0, Collisions=0/41=0%
+# Finished Make data base on Tue Oct 12 23:10:23 2021
+
+ 
