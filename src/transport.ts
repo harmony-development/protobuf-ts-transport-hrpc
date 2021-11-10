@@ -17,6 +17,7 @@ import { Error as HError } from "../gen/protocol/hrpc";
 
 export interface HrpcOptions extends RpcOptions {
   baseUrl: string;
+  insecure?: boolean;
 }
 
 enum HrpcErrorCode {
@@ -75,7 +76,7 @@ export class HrpcTransport implements RpcTransport {
   makeUrl(method: MethodInfo, options: HrpcOptions, ws?: boolean) {
     let base = options.baseUrl;
     if (base.endsWith("/")) base = base.substring(0, base.length - 1);
-    if (ws) base = `wss${base.substr(base.indexOf("://"))}`;
+    if (ws) base = `${options.insecure ? 'ws' : 'wss'}${base.substr(base.indexOf("://"))}`;
     let methodName = method.name;
     return `${base}/${method.service.typeName}/${methodName}`;
   }
