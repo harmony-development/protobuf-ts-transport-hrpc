@@ -1,6 +1,6 @@
 {
   "name": "@harmony-dev/transport-hrpc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "protobuf-ts transport for hRPC",
   "author": "Danil Korennykh <bluskript@gmail.com>",
   "license": "Apache-2.0",
