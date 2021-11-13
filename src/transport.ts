@@ -1,3 +1,4 @@
+import { IMessageType } from "@protobuf-ts/runtime";
 import {
   ClientStreamingCall,
   Deferred,
@@ -76,7 +77,10 @@ export class HrpcTransport implements RpcTransport {
   makeUrl(method: MethodInfo, options: HrpcOptions, ws?: boolean) {
     let base = options.baseUrl;
     if (base.endsWith("/")) base = base.substring(0, base.length - 1);
-    if (ws) base = `${options.insecure ? 'ws' : 'wss'}${base.substr(base.indexOf("://"))}`;
+    if (ws)
+      base = `${
+        options.baseUrl.startsWith("https") ? "wss" : "ws"
+      }${base.substr(base.indexOf("://"))}`;
     let methodName = method.name;
     return `${base}/${method.service.typeName}/${methodName}`;
   }
@@ -162,15 +166,15 @@ export class HrpcTransport implements RpcTransport {
     input: I,
     options: RpcOptions
   ): UnaryCall<I, O> {
-    let opt = options as HrpcOptions;
-    let url = this.makeUrl(method, opt);
-    let requestBody = opt.sendJson
+    const opt = options as HrpcOptions;
+    const url = this.makeUrl(method, opt);
+    const requestBody = opt.sendJson
       ? method.I.toJsonString(input, opt.jsonOptions)
       : method.I.toBinary(input, opt.binaryOptions);
-    let defHeader = new Deferred<RpcMetadata>();
-    let defMessage = new Deferred<O>();
-    let defStatus = new Deferred<RpcStatus>();
-    let defTrailer = new Deferred<RpcMetadata>();
+    const defHeader = new Deferred<RpcMetadata>();
+    const defMessage = new Deferred<O>();
+    const defStatus = new Deferred<RpcStatus>();
+    const defTrailer = new Deferred<RpcMetadata>();
 
     this.processFetch(
       fetch(url, {
@@ -210,10 +214,23 @@ export class HrpcTransport implements RpcTransport {
     );
   }
 
-  streamCall<I extends object, O extends object>(
-    url: string,
-    method: MethodInfo<I, O>
-  ): WebSocket {
+  parseHrpcEvent<O extends object>(
+    ev: MessageEvent<ArrayBuffer>,
+    responseType: IMessageType<O>
+  ): O {
+    const buf = new Uint8Array(ev.data);
+    const opcode = buf[0];
+    const data = buf.slice(1);
+    // If sending a hRPC error, the serialized error MUST be prefixed with 1.
+    if (opcode === 0) {
+      return responseType.fromBinary(data);
+    } else {
+      const err = HError.fromBinary(data);
+      throw new RpcError(err.humanMessage, err.identifier);
+    }
+  }
+
+  streamCall(url: string): WebSocket {
     const ws = new WebSocket(
       url,
       this.session ? ["hrpc", this.session] : ["hrpc"]
@@ -235,11 +252,23 @@ export class HrpcTransport implements RpcTransport {
     let defStatus = new Deferred<RpcStatus>();
     let defTrailer = new Deferred<RpcMetadata>();
 
-    const ws = this.streamCall(url, method);
-    ws.onmessage = (ev) => {
-      responseStream.notifyMessage(
-        method.O.fromBinary(new Uint8Array(ev.data))
-      );
+    const ws = this.streamCall(url);
+    ws.onmessage = (ev: MessageEvent<ArrayBuffer>) => {
+      try {
+        const msg = this.parseHrpcEvent(ev, method.O);
+        responseStream.notifyMessage(msg);
+      } catch (e) {
+        if (e instanceof RpcError) {
+          responseStream.notifyError(e);
+        } else {
+          responseStream.notifyError(
+            new RpcError(
+              "unable to decode error response",
+              HrpcErrorCode[HrpcErrorCode.invalid_response]
+            )
+          );
+        }
+      }
     };
     ws.onclose = (ev) => {
       if (ev.wasClean) responseStream.notifyComplete();
@@ -267,21 +296,32 @@ export class HrpcTransport implements RpcTransport {
     let defStatus = new Deferred<RpcStatus>();
     let defTrailer = new Deferred<RpcMetadata>();
     let defMessage = new Deferred<O>();
-    const ws = this.streamCall(this.makeUrl(method, opts, true), method);
+
+    const rejectAll = (err: any) => {
+      defHeader.rejectPending(err);
+      defMessage.rejectPending(err);
+      defStatus.rejectPending(err);
+      defTrailer.rejectPending(err);
+    };
+
+    const ws = this.streamCall(this.makeUrl(method, opts, true));
     let requestStream = new HrpcInputStreamWrapper(ws, (v: I) =>
       method.I.toBinary(v, opts.binaryOptions)
     );
-    ws.onmessage = (ev) => {
+    ws.onmessage = (ev: MessageEvent<ArrayBuffer>) => {
+      try {
+        const msg = this.parseHrpcEvent(ev, method.O);
+        defMessage.resolvePending(msg);
+      } catch (e) {
+        rejectAll(e);
+      }
       defMessage.resolve(method.O.fromBinary(new Uint8Array(ev.data)));
       ws.close();
     };
     ws.onclose = (ev) => {
       if (!ev.wasClean) {
         const err = new Error(ev.reason);
-        defHeader.rejectPending(err);
-        defMessage.rejectPending(err);
-        defStatus.rejectPending(err);
-        defTrailer.rejectPending(err);
+        rejectAll(err);
       }
     };
     return new ClientStreamingCall<I, O>(
@@ -304,11 +344,22 @@ export class HrpcTransport implements RpcTransport {
     let defStatus = new Deferred<RpcStatus>();
     let defTrailer = new Deferred<RpcMetadata>();
     let responseStream = new RpcOutputStreamController<O>();
-    const ws = this.streamCall(this.makeUrl(method, opts, true), method);
-    ws.onmessage = (ev) => {
-      responseStream.notifyMessage(
-        method.O.fromBinary(new Uint8Array(ev.data))
-      );
+
+    const rejectAll = (err: any) => {
+      defHeader.rejectPending(err);
+      defStatus.rejectPending(err);
+      defTrailer.rejectPending(err);
+      responseStream.notifyError(err);
+    };
+
+    const ws = this.streamCall(this.makeUrl(method, opts, true));
+    ws.onmessage = (ev: MessageEvent<ArrayBuffer>) => {
+      try {
+        const msg = this.parseHrpcEvent(ev, method.O);
+        responseStream.notifyMessage(msg);
+      } catch (e) {
+        rejectAll(e);
+      }
     };
     ws.onclose = (ev) => {
       if (ev.wasClean) responseStream.notifyComplete();

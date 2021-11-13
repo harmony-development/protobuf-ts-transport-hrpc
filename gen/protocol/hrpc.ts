@@ -24,17 +24,30 @@ export interface Error {
      */
     identifier: string;
     /**
-     * A (usually english) human message for this error.
+     * A human readable message in English, explaining why the error occured.
      *
      * @generated from protobuf field: string human_message = 2;
      */
     humanMessage: string;
     /**
-     * More details about this message. Is dependent on the endpoint.
+     * Details about this message. This is dependent on the error identifier.
      *
-     * @generated from protobuf field: bytes more_details = 3;
+     * @generated from protobuf field: bytes details = 3;
      */
-    moreDetails: Uint8Array;
+    details: Uint8Array;
+}
+/**
+ * Information that can be used by clients for retrying requests.
+ *
+ * @generated from protobuf message hrpc.v1.RetryInfo
+ */
+export interface RetryInfo {
+    /**
+     * How many seconds to wait before retrying the request.
+     *
+     * @generated from protobuf field: uint32 retry_after = 1;
+     */
+    retryAfter: number;
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class Error$Type extends MessageType<Error> {
@@ -42,11 +55,11 @@ class Error$Type extends MessageType<Error> {
         super("hrpc.v1.Error", [
             { no: 1, name: "identifier", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "human_message", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "more_details", kind: "scalar", T: 12 /*ScalarType.BYTES*/ }
+            { no: 3, name: "details", kind: "scalar", T: 12 /*ScalarType.BYTES*/ }
         ]);
     }
     create(value?: PartialMessage<Error>): Error {
-        const message = { identifier: "", humanMessage: "", moreDetails: new Uint8Array(0) };
+        const message = { identifier: "", humanMessage: "", details: new Uint8Array(0) };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Error>(this, message, value);
@@ -63,8 +76,8 @@ class Error$Type extends MessageType<Error> {
                 case /* string human_message */ 2:
                     message.humanMessage = reader.string();
                     break;
-                case /* bytes more_details */ 3:
-                    message.moreDetails = reader.bytes();
+                case /* bytes details */ 3:
+                    message.details = reader.bytes();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -84,9 +97,9 @@ class Error$Type extends MessageType<Error> {
         /* string human_message = 2; */
         if (message.humanMessage !== "")
             writer.tag(2, WireType.LengthDelimited).string(message.humanMessage);
-        /* bytes more_details = 3; */
-        if (message.moreDetails.length)
-            writer.tag(3, WireType.LengthDelimited).bytes(message.moreDetails);
+        /* bytes details = 3; */
+        if (message.details.length)
+            writer.tag(3, WireType.LengthDelimited).bytes(message.details);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -97,3 +110,50 @@ class Error$Type extends MessageType<Error> {
  * @generated MessageType for protobuf message hrpc.v1.Error
  */
 export const Error = new Error$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class RetryInfo$Type extends MessageType<RetryInfo> {
+    constructor() {
+        super("hrpc.v1.RetryInfo", [
+            { no: 1, name: "retry_after", kind: "scalar", T: 13 /*ScalarType.UINT32*/ }
+        ]);
+    }
+    create(value?: PartialMessage<RetryInfo>): RetryInfo {
+        const message = { retryAfter: 0 };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<RetryInfo>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: RetryInfo): RetryInfo {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* uint32 retry_after */ 1:
+                    message.retryAfter = reader.uint32();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: RetryInfo, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* uint32 retry_after = 1; */
+        if (message.retryAfter !== 0)
+            writer.tag(1, WireType.Varint).uint32(message.retryAfter);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hrpc.v1.RetryInfo
+ */
+export const RetryInfo = new RetryInfo$Type();

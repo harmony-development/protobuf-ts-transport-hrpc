@@ -1,7 +1,7 @@
 default: generate clean build test
 
 generate:
-	buf generate git://github.com/harmony-development/hrpc.git#branch=work/danil/cleanup
+	buf generate git://github.com/harmony-development/hrpc.git
 
 clean:
 	@find build \( -name '*.js' -or -name '*.map' -or -name '*.ts' \) -delete;
