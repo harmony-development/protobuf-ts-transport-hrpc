@@ -233,7 +233,7 @@ export class HrpcTransport implements RpcTransport {
   streamCall(url: string): WebSocket {
     const ws = new WebSocket(
       url,
-      this.session ? ["hrpc-version=1", this.session] : ["hrpc-version=1"]
+      this.session ? ["hrpc1", this.session] : ["hrpc1"]
     );
     ws.binaryType = "arraybuffer";
     return ws;

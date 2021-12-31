@@ -16,4 +16,4 @@ build:
 	@echo "cjs done"
 
 test:
-	@./node_modules/.bin/jest
+	@./node_modules/.bin/vitest
